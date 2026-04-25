@@ -346,12 +346,12 @@ Todos son correctos. Lo importante no es el número exacto sino que sea **varios
 **P1.** Ejecutá `wc -l programa.i` y escribí el número de líneas que obtenés.
 
 <!-- Completá la línea siguiente con el número exacto (solo dígitos, sin espacios): -->
-LINEAS_I=
+LINEAS_I=1753
 
 ¿Por qué ese número es tan mayor que las 94 líneas de `programa.c`?
 
 > **R:**
-
+Hay muchas más l´neas porque se copian y pegan todas las lineas de los archivos de las macros, cosa que no se hace en el 'programa.c' para que este sea más legible.
 ---
 
 #### Herramienta: `grep`
@@ -389,12 +389,12 @@ grep "Archivo fuente principal" programa.i   # no debe encontrar nada
 ¿El comando encuentra algo o no devuelve nada?
 
 <!-- Completá con SI (si encontró algo) o NO (si no encontró nada): -->
-COMENTARIOS_EN_I=
+COMENTARIOS_EN_I=NO
 
 ¿Por qué ocurre eso?
 
 > **R:**
-
+Ocurre porque los comentarios no se guardan, se borran.
 ---
 
 #### Observación 2: Las macros se expanden
@@ -422,24 +422,27 @@ Nótese que `CUADRADO(5)` se expande a `((5) * (5))`, con los paréntesis extra 
 
 **P3.** Ejecutá `grep -n "CUADRADO" programa.i` y copiá la salida completa.
 
-> **R:**
+> **R:** 1722:    printf("CUADRADO(%d)      = %d\n", 5, ((5) * (5)));
+
+
 
 ¿El nombre `CUADRADO` aparece tal cual en `programa.i`, o fue reemplazado
 por otra cosa? Respondé SI o NO:
 
 <!-- Completá con SI o NO: -->
-CUADRADO_EN_I=
+CUADRADO_EN_I=NO
 
 ---
 
 **P4.** Ejecutá `grep -n '"1\.0"' programa.i` y copiá la línea encontrada.
 
-> **R:**
+> **R:** 1713:    printf("=== Laboratorio de Compilacion en C (v%s) ===\n\n", "1.0");
+
 
 ¿Cuál era el nombre de la macro en `programa.c` que fue reemplazada por `"1.0"`?
 
 <!-- Completá con el nombre exacto de la macro (en mayúsculas, como está en el fuente): -->
-NOMBRE_MACRO_VERSION=
+NOMBRE_MACRO_VERSION=VERSION
 
 ---
 
@@ -476,12 +479,14 @@ gcc -E -DDEBUG programa.c | grep "Iniciando"
 ```
 
 > **R:**
+>     printf("[DEBUG] %s\n", ("Iniciando main"));
+
 
 ¿Agregar `-DDEBUG` hace que aparezca código nuevo en el `.i` que antes no estaba?
 Respondé SI o NO:
 
 <!-- Completá con SI o NO: -->
-DEBUG_ACTIVA_CODIGO=
+DEBUG_ACTIVA_CODIGO=SI
 
 ---
 
@@ -504,7 +509,7 @@ grep -n "stdio.h" programa.i | head -5
 
 ¿Qué información comunican esas líneas `# N "archivo"`? ¿De qué archivo proviene el bloque que contiene la declaración de `printf`?
 
-> **R:**
+> **R:** El bloque proviene del archivo studio.h y se comunican los marcadores de líneas
 
 ---
 
