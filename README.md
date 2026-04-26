@@ -687,13 +687,12 @@ las primeras 4 líneas de instrucciones que le siguen.
         .seh_pushreg    %rbp
         movq    %rsp, %rbp
         .seh_setframe   %rbp, 0
-        .seh_endprologue
 
 
 Explicá en términos generales qué hacen esas instrucciones
 (usá los comentarios del laboratorio como guía):
 
-> **R:** 
+> **R:** Son el inicio de la función, se guarda el puntero de la base anterior, se setea el de la nueva y se asegura que ante cualquier fallo va a tener guardada esas direcciones.
 
 ---
 
