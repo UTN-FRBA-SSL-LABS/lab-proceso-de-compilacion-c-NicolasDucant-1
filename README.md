@@ -821,13 +821,30 @@ Salida esperada (simplificada):
 
 **P10.** Ejecutá `nm programa.o` y copiá la salida completa.
 
-> **R:**
+> **R:** 0000000000000000 b .bss
+0000000000000000 d .data
+0000000000000000 p .pdata
+0000000000000000 r .rdata
+0000000000000000 r .rdata$zzz
+0000000000000000 t .text
+0000000000000000 r .xdata
+                 U __imp___acrt_iob_func
+                 U __main
+                 U __mingw_vfprintf
+                 U area_circulo
+                 U factorial
+0000000000000195 T imprimir_separador
+0000000000000000 B llamadas
+0000000000000074 T main
+0000000000000000 t printf
+0000000000000051 T sumar
+
 
 ¿Con qué letra aparece `area_circulo` en esa tabla?
 Escribí solo la letra (una mayúscula):
 
 <!-- Completá con la letra exacta que muestra nm (U, T, D, etc.): -->
-TIPO_AREA_EN_O=
+TIPO_AREA_EN_O=U
 
 ---
 
@@ -847,13 +864,13 @@ nm matematica.o
 **P11.** ¿Por qué `area_circulo` tiene ese tipo en `programa.o`
 pero tipo `T` en `matematica.o`?
 
-> **R:**
+> **R:** Porque no se encuentra definida en 'programa.o', pero como sabe que se necesita y existe en otro archivo se le asigna la letra U, para que después sean enlazadas.
 
 ¿Qué etapa del proceso de compilación resuelve esa diferencia?
 Respondé con una palabra: PREPROCESAMIENTO, COMPILACION, ENSAMBLADO o ENLAZADO:
 
 <!-- Completá con una de las cuatro opciones: -->
-ETAPA_QUE_RESUELVE=
+ETAPA_QUE_RESUELVE=ENLAZADO
 
 ---
 
@@ -872,13 +889,20 @@ Un `.o` no es ejecutable por dos razones:
 
 **P12.** Intentá ejecutar `./programa.o` directamente. ¿Qué mensaje aparece?
 
-> **R:**
+> **R:** ./programa.o : El término './programa.o' no se reconoce como nombre de un cmdlet, función, archivo de script o
+programa ejecutable. Compruebe si escribió correctamente el nombre o, si incluyó una ruta de acceso, compruebe que
+dicha ruta es correcta e inténtelo de nuevo.
+En línea: 1 Carácter: 1
++ ./programa.o
++ ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (./programa.o:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
 
 ¿Se puede ejecutar un archivo `.o` directamente?
 Respondé SI o NO:
 
 <!-- Completá con SI o NO: -->
-EJECUTABLE_O=
+EJECUTABLE_O=NO
 
 ---
 
